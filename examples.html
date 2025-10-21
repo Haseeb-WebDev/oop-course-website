@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Examples - Object Oriented Programming Course</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .main-content {
+            margin-top: 120px;
+            padding: 2rem 0;
+        }
+        .language-section {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .language-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid #667eea;
+        }
+        .language-header i {
+            font-size: 2.5rem;
+            margin-right: 1rem;
+            color: #667eea;
+        }
+        .language-header h2 {
+            margin: 0;
+            color: #333;
+        }
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .code-example {
+            background: #1e1e1e;
+            border-radius: 10px;
+            padding: 1.5rem;
+            overflow-x: auto;
+            position: relative;
+        }
+        .code-example::before {
+            content: attr(data-title);
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        .code-example pre {
+            margin: 0;
+            color: white;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover {
+            color: #764ba2;
+            transform: translateX(-5px);
+        }
+        .back-btn i {
+            margin-right: 0.5rem;
+        }
+        .example-description {
+            margin-bottom: 1rem;
+            color: #666;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-code"></i>
+                <span>OOP Course</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="concepts.html" class="nav-link">Concepts</a>
+                </li>
+                <li class="nav-item">
+                    <a href="examples.html" class="nav-link">Examples</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#resources" class="nav-link">Resources</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </a>
+            
+            <h1 style="text-align: center; color: #333; margin-bottom: 3rem;">Practical Code Examples</h1>
+
+            <div id="java" class="language-section">
+                <div class="language-header">
+                    <i class="fab fa-java"></i>
+                    <h2>Java Examples</h2>
+                </div>
+                
+                <div class="example-description">
+                    Java is a pure object-oriented language that strongly enforces OOP principles. Here are comprehensive examples showing all four OOP concepts.
+                </div>
+
+                <div class="example-grid">
+                    <div class="code-example" data-title="Encapsulation">
+                        <pre><code>public class Student {
+    // Private fields (encapsulated)
+    private String name;
+    private int age;
+    private double gpa;
+    private String studentId;
+    
+    // Constructor
+    public Student(String name, int age, String studentId) {
+        this.name = name;
+        this.age = age;
+        this.studentId = studentId;
+        this.gpa = 0.0;
+    }
+    
+    // Getter methods
+    public String getName() {
+        return name;
+    }
+    
+    public int getAge() {
+        return age;
+    }
+    
+    public double getGpa() {
+        return gpa;
+    }
+    
+    public String getStudentId() {
+        return studentId;
+    }
+    
+    // Setter methods with validation
+    public void setGpa(double gpa) {
+        if (gpa >= 0.0 && gpa <= 4.0) {
+            this.gpa = gpa;
+        } else {
+            System.out.println("Invalid GPA!");
+        }
+    }
+    
+    public void setName(String name) {
+        if (name != null && !name.trim().isEmpty()) {
+            this.name = name;
+        }
+    }
+    
+    // Display student information
+    public void displayInfo() {
+        System.out.println("Student: " + name);
+        System.out.println("ID: " + studentId);
+        System.out.println("Age: " + age);
+        System.out.println("GPA: " + gpa);
+    }
+}</code></pre>
+                    </div>
+                    
+                    <div class="code-example" data-title="Inheritance">
+                        <pre><code>// Base class
+abstract class Vehicle {
+    protected String brand;
+    protected String model;
+    protected int year;
+    protected double price;
+    
+    public Vehicle(String brand, String model, int year, double price) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.price = price;
+    }
+    
+    // Abstract method
+    public abstract void start();
+    
+    // Concrete methods
+    public void displayInfo() {
+        System.out.println(year + " " + brand + " " + model);
+        System.out.println("Price: $" + price);
+    }
+    
+    public void stop() {
+        System.out.println("Vehicle stopped.");
+    }
+}
+
+// Derived class
+class Car extends Vehicle {
+    private int doors;
+    private String fuelType;
+    
+    public Car(String brand, String model, int year, 
+               double price, int doors, String fuelType) {
+        super(brand, model, year, price);
+        this.doors = doors;
+        this.fuelType = fuelType;
+    }
+    
+    @Override
+    public void start() {
+        System.out.println("Car engine started with key.");
+    }
+    
+    public void honk() {
+        System.out.println("Car honks: Beep! Beep!");
+    }
+    
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Doors: " + doors);
+        System.out.println("Fuel Type: " + fuelType);
+    }
+}
+
+class Motorcycle extends Vehicle {
+    private boolean hasSidecar;
+    
+    public Motorcycle(String brand, String model, int year, 
+                     double price, boolean hasSidecar) {
+        super(brand, model, year, price);
+        this.hasSidecar = hasSidecar;
+    }
+    
+    @Override
+    public void start() {
+        System.out.println("Motorcycle started with ignition.");
+    }
+    
+    public void wheelie() {
+        System.out.println("Motorcycle does a wheelie!");
+    }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div id="python" class="language-section">
+                <div class="language-header">
+                    <i class="fab fa-python"></i>
+                    <h2>Python Examples</h2>
+                </div>
+                
+                <div class="example-description">
+                    Python supports OOP with a clean and intuitive syntax. Here are examples demonstrating OOP concepts in Python.
+                </div>
+
+                <div class="example-grid">
+                    <div class="code-example" data-title="Encapsulation & Abstraction">
+                        <pre><code>from abc import ABC, abstractmethod
+
+class BankAccount(ABC):
+    def __init__(self, account_number, owner_name):
+        self._account_number = account_number  # Protected
+        self._owner_name = owner_name
+        self.__balance = 0.0  # Private
+        self.__transaction_history = []  # Private
+    
+    # Getter methods
+    @property
+    def balance(self):
+        return self.__balance
+    
+    @property
+    def account_number(self):
+        return self._account_number
+    
+    @property
+    def owner_name(self):
+        return self._owner_name
+    
+    # Protected method
+    def _validate_amount(self, amount):
+        return amount > 0
+    
+    # Private method
+    def __add_transaction(self, transaction_type, amount):
+        self.__transaction_history.append({
+            'type': transaction_type,
+            'amount': amount,
+            'balance': self.__balance
+        })
+    
+    # Abstract method
+    @abstractmethod
+    def calculate_interest(self):
+        pass
+    
+    # Public methods
+    def deposit(self, amount):
+        if self._validate_amount(amount):
+            self.__balance += amount
+            self.__add_transaction('deposit', amount)
+            return True
+        return False
+    
+    def withdraw(self, amount):
+        if self._validate_amount(amount) and amount <= self.__balance:
+            self.__balance -= amount
+            self.__add_transaction('withdrawal', amount)
+            return True
+        return False
+    
+    def get_statement(self):
+        return self.__transaction_history.copy()
+
+# Concrete implementation
+class SavingsAccount(BankAccount):
+    def __init__(self, account_number, owner_name, interest_rate):
+        super().__init__(account_number, owner_name)
+        self.interest_rate = interest_rate
+    
+    def calculate_interest(self):
+        return self.balance * self.interest_rate / 100
+    
+    def add_interest(self):
+        interest = self.calculate_interest()
+        if interest > 0:
+            self.deposit(interest)
+            print(f"Interest added: ${interest:.2f}")
+
+class CheckingAccount(BankAccount):
+    def __init__(self, account_number, owner_name, overdraft_limit):
+        super().__init__(account_number, owner_name)
+        self.overdraft_limit = overdraft_limit
+    
+    def calculate_interest(self):
+        return 0  # No interest for checking accounts
+    
+    def withdraw(self, amount):
+        if (self._validate_amount(amount) and 
+            amount <= self.balance + self.overdraft_limit):
+            self._BankAccount__balance -= amount
+            self._BankAccount__add_transaction('withdrawal', amount)
+            return True
+        return False</code></pre>
+                    </div>
+                    
+                    <div class="code-example" data-title="Polymorphism">
+                        <pre><code>class Animal:
+    def __init__(self, name, species):
+        self.name = name
+        self.species = species
+    
+    def make_sound(self):
+        pass
+    
+    def move(self):
+        print(f"{self.name} is moving")
+    
+    def __str__(self):
+        return f"{self.name} the {self.species}"
+
+class Dog(Animal):
+    def __init__(self, name, breed):
+        super().__init__(name, "Dog")
+        self.breed = breed
+    
+    def make_sound(self):
+        return "Woof! Woof!"
+    
+    def move(self):
+        print(f"{self.name} runs on four legs")
+    
+    def fetch(self):
+        return f"{self.name} fetches the ball"
+
+class Cat(Animal):
+    def __init__(self, name, breed):
+        super().__init__(name, "Cat")
+        self.breed = breed
+    
+    def make_sound(self):
+        return "Meow! Meow!"
+    
+    def move(self):
+        print(f"{self.name} prowls silently")
+    
+    def climb(self):
+        return f"{self.name} climbs the tree"
+
+class Bird(Animal):
+    def __init__(self, name, species, can_fly=True):
+        super().__init__(name, species)
+        self.can_fly = can_fly
+    
+    def make_sound(self):
+        return "Chirp! Chirp!"
+    
+    def move(self):
+        if self.can_fly:
+            print(f"{self.name} flies through the air")
+        else:
+            print(f"{self.name} walks on the ground")
+
+# Polymorphism demonstration
+def animal_sounds(animals):
+    for animal in animals:
+        print(f"{animal} says: {animal.make_sound()}")
+        animal.move()
+        print()
+
+# Usage example
+if __name__ == "__main__":
+    animals = [
+        Dog("Buddy", "Golden Retriever"),
+        Cat("Whiskers", "Persian"),
+        Bird("Tweet", "Canary"),
+        Bird("Penguin", "Emperor Penguin", can_fly=False)
+    ]
+    
+    animal_sounds(animals)</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div id="javascript" class="language-section">
+                <div class="language-header">
+                    <i class="fab fa-js-square"></i>
+                    <h2>JavaScript Examples</h2>
+                </div>
+                
+                <div class="example-description">
+                    JavaScript ES6+ introduced class syntax that makes OOP more intuitive. Here are modern JavaScript OOP examples.
+                </div>
+
+                <div class="example-grid">
+                    <div class="code-example" data-title="Classes & Encapsulation">
+                        <pre><code>class Employee {
+    // Private fields (ES2022)
+    #salary;
+    #ssn;
+    #employeeId;
+    
+    constructor(name, department, salary, ssn) {
+        this.name = name;
+        this.department = department;
+        this.#salary = salary;
+        this.#ssn = ssn;
+        this.#employeeId = this.#generateEmployeeId();
+        this.projects = [];
+    }
+    
+    // Private method
+    #generateEmployeeId() {
+        return 'EMP' + Date.now().toString().slice(-6);
+    }
+    
+    // Getter methods
+    get employeeId() {
+        return this.#employeeId;
+    }
+    
+    get salary() {
+        return this.#salary;
+    }
+    
+    // Setter with validation
+    set salary(newSalary) {
+        if (newSalary > 0) {
+            this.#salary = newSalary;
+        } else {
+            throw new Error('Salary must be positive');
+        }
+    }
+    
+    // Public methods
+    addProject(project) {
+        this.projects.push(project);
+    }
+    
+    getInfo() {
+        return {
+            id: this.#employeeId,
+            name: this.name,
+            department: this.department,
+            projectCount: this.projects.length
+        };
+    }
+    
+    // Method to safely display salary (only last 2 digits)
+    getObfuscatedSalary() {
+        const salaryStr = this.#salary.toString();
+        return '*'.repeat(salaryStr.length - 2) + salaryStr.slice(-2);
+    }
+    
+    calculateBonus() {
+        return this.#salary * 0.1; // 10% bonus
+    }
+    
+    toString() {
+        return `Employee: ${this.name} (${this.#employeeId}) - ${this.department}`;
+    }
+}
+
+// Usage example
+const emp = new Employee("John Doe", "Engineering", 75000, "123-45-6789");
+emp.addProject("Project Alpha");
+emp.addProject("Project Beta");
+
+console.log(emp.getInfo());
+console.log(emp.getObfuscatedSalary());
+console.log(emp.calculateBonus());</code></pre>
+                    </div>
+                    
+                    <div class="code-example" data-title="Inheritance & Polymorphism">
+                        <pre><code>// Base class
+class Shape {
+    constructor(color) {
+        this.color = color;
+        this.created = new Date();
+    }
+    
+    // Method to be overridden
+    calculateArea() {
+        throw new Error("calculateArea method must be implemented");
+    }
+    
+    calculatePerimeter() {
+        throw new Error("calculatePerimeter method must be implemented");
+    }
+    
+    getInfo() {
+        return {
+            type: this.constructor.name,
+            color: this.color,
+            area: this.calculateArea(),
+            perimeter: this.calculatePerimeter(),
+            created: this.created
+        };
+    }
+}
+
+// Derived classes
+class Circle extends Shape {
+    constructor(color, radius) {
+        super(color);
+        this.radius = radius;
+    }
+    
+    calculateArea() {
+        return Math.PI * this.radius ** 2;
+    }
+    
+    calculatePerimeter() {
+        return 2 * Math.PI * this.radius;
+    }
+    
+    // Additional method specific to Circle
+    getDiameter() {
+        return this.radius * 2;
+    }
+}
+
+class Rectangle extends Shape {
+    constructor(color, width, height) {
+        super(color);
+        this.width = width;
+        this.height = height;
+    }
+    
+    calculateArea() {
+        return this.width * this.height;
+    }
+    
+    calculatePerimeter() {
+        return 2 * (this.width + this.height);
+    }
+    
+    // Additional method
+    isSquare() {
+        return this.width === this.height;
+    }
+}
+
+class Triangle extends Shape {
+    constructor(color, base, height, sideA, sideB) {
+        super(color);
+        this.base = base;
+        this.height = height;
+        this.sideA = sideA;
+        this.sideB = sideB;
+    }
+    
+    calculateArea() {
+        return (this.base * this.height) / 2;
+    }
+    
+    calculatePerimeter() {
+        return this.base + this.sideA + this.sideB;
+    }
+}
+
+// Polymorphism in action
+function displayShapesInfo(shapes) {
+    shapes.forEach(shape => {
+        console.log(`${shape.constructor.name}:`);
+        console.log(`  Color: ${shape.color}`);
+        console.log(`  Area: ${shape.calculateArea().toFixed(2)}`);
+        console.log(`  Perimeter: ${shape.calculatePerimeter().toFixed(2)}`);
+        console.log('---');
+    });
+}
+
+// Usage
+const shapes = [
+    new Circle("red", 5),
+    new Rectangle("blue", 4, 6),
+    new Triangle("green", 3, 4, 5, 5)
+];
+
+displayShapesInfo(shapes);</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 OOP Course. Created by Muhammad Haseeb</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
