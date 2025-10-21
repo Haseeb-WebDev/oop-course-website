@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Oriented Programming Course</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-code"></i>
+                <span>OOP Course</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#concepts" class="nav-link">Concepts</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#examples" class="nav-link">Examples</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#resources" class="nav-link">Resources</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Object Oriented Programming</h1>
+                <p>Master the fundamentals of OOP with comprehensive lessons, examples, and hands-on practice</p>
+                <div class="hero-buttons">
+                    <a href="#concepts" class="btn btn-primary">Start Learning</a>
+                    <a href="#examples" class="btn btn-secondary">View Examples</a>
+                </div>
+            </div>
+            <div class="hero-animation">
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="code-content">
+                        <span class="keyword">class</span> <span class="class-name">Student</span> {<br>
+                        &nbsp;&nbsp;<span class="keyword">private</span> <span class="type">String</span> name;<br>
+                        &nbsp;&nbsp;<span class="keyword">public</span> <span class="method">getName</span>() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> name;<br>
+                        &nbsp;&nbsp;}<br>
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="concepts" class="concepts">
+            <div class="container">
+                <h2>Core OOP Concepts</h2>
+                <p class="section-desc">Learn the four fundamental pillars of Object Oriented Programming</p>
+                <div class="concepts-grid">
+                    <div class="concept-card">
+                        <div class="concept-icon">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <h3>Encapsulation</h3>
+                        <p>Bundling data and methods that operate on that data within a single unit, controlling access through visibility modifiers.</p>
+                        <a href="concepts.html#encapsulation" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon">
+                            <i class="fas fa-sitemap"></i>
+                        </div>
+                        <h3>Inheritance</h3>
+                        <p>Creating new classes based on existing classes, inheriting properties and methods while adding new functionality.</p>
+                        <a href="concepts.html#inheritance" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon">
+                            <i class="fas fa-shapes"></i>
+                        </div>
+                        <h3>Polymorphism</h3>
+                        <p>The ability of objects to take multiple forms, allowing the same interface to represent different underlying data types.</p>
+                        <a href="concepts.html#polymorphism" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <h3>Abstraction</h3>
+                        <p>Hiding complex implementation details while showing only essential features of an object to the outside world.</p>
+                        <a href="concepts.html#abstraction" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="examples" class="examples">
+            <div class="container">
+                <h2>Code Examples</h2>
+                <p class="section-desc">Practical examples demonstrating OOP concepts in action</p>
+                <div class="examples-grid">
+                    <div class="example-card">
+                        <h3><i class="fab fa-java"></i> Java Examples</h3>
+                        <p>Complete Java implementations of OOP concepts with detailed explanations</p>
+                        <a href="examples.html#java" class="btn btn-outline">View Java Code</a>
+                    </div>
+                    <div class="example-card">
+                        <h3><i class="fab fa-python"></i> Python Examples</h3>
+                        <p>Python implementations showcasing OOP principles in a clean, readable format</p>
+                        <a href="examples.html#python" class="btn btn-outline">View Python Code</a>
+                    </div>
+                    <div class="example-card">
+                        <h3><i class="fab fa-js-square"></i> JavaScript Examples</h3>
+                        <p>Modern JavaScript ES6+ classes and object-oriented patterns</p>
+                        <a href="examples.html#javascript" class="btn btn-outline">View JS Code</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="resources" class="resources">
+            <div class="container">
+                <h2>Learning Resources</h2>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <i class="fas fa-book"></i>
+                        <h3>Documentation</h3>
+                        <p>Comprehensive guides and references</p>
+                    </div>
+                    <div class="resource-card">
+                        <i class="fas fa-video"></i>
+                        <h3>Video Tutorials</h3>
+                        <p>Step-by-step video explanations</p>
+                    </div>
+                    <div class="resource-card">
+                        <i class="fas fa-tasks"></i>
+                        <h3>Practice Exercises</h3>
+                        <p>Hands-on coding challenges</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <p>Have questions? Feel free to reach out!</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>m2005hk@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <span>github.com/Haseeb-WebDev</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 OOP Course. Created by Muhammad Haseeb</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
