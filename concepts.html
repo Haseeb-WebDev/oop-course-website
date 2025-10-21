@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP Concepts - Object Oriented Programming Course</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .concept-detail {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+        .concept-detail h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+        .code-example {
+            background: #1e1e1e;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            position: relative;
+        }
+        .code-example::before {
+            content: attr(data-lang);
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        .main-content {
+            margin-top: 120px;
+            padding: 2rem 0;
+        }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover {
+            color: #764ba2;
+            transform: translateX(-5px);
+        }
+        .back-btn i {
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-code"></i>
+                <span>OOP Course</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="concepts.html" class="nav-link">Concepts</a>
+                </li>
+                <li class="nav-item">
+                    <a href="examples.html" class="nav-link">Examples</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#resources" class="nav-link">Resources</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </a>
+            
+            <h1 style="text-align: center; color: #333; margin-bottom: 3rem;">Object Oriented Programming Concepts</h1>
+
+            <div id="encapsulation" class="concept-detail">
+                <h2><i class="fas fa-box"></i> Encapsulation</h2>
+                <p><strong>Definition:</strong> Encapsulation is the bundling of data (attributes) and methods (functions) that operate on that data into a single unit called a class. It also involves restricting access to some of the object's components through access modifiers.</p>
+                
+                <h3>Key Benefits:</h3>
+                <ul>
+                    <li><strong>Data Security:</strong> Prevents unauthorized access to sensitive data</li>
+                    <li><strong>Code Maintainability:</strong> Changes to internal implementation don't affect external code</li>
+                    <li><strong>Modularity:</strong> Code is organized into logical units</li>
+                    <li><strong>Reusability:</strong> Encapsulated classes can be reused across projects</li>
+                </ul>
+
+                <h3>Java Example:</h3>
+                <div class="code-example" data-lang="Java">
+public class BankAccount {
+    // Private attributes (encapsulated)
+    private String accountNumber;
+    private double balance;
+    private String ownerName;
+    
+    // Constructor
+    public BankAccount(String accountNumber, String ownerName) {
+        this.accountNumber = accountNumber;
+        this.ownerName = ownerName;
+        this.balance = 0.0;
+    }
+    
+    // Public methods to access private data (getters)
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+    
+    public double getBalance() {
+        return balance;
+    }
+    
+    public String getOwnerName() {
+        return ownerName;
+    }
+    
+    // Public methods to modify private data (setters)
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposited: $" + amount);
+        }
+    }
+    
+    public boolean withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrawn: $" + amount);
+            return true;
+        }
+        return false;
+    }
+}
+                </div>
+            </div>
+
+            <div id="inheritance" class="concept-detail">
+                <h2><i class="fas fa-sitemap"></i> Inheritance</h2>
+                <p><strong>Definition:</strong> Inheritance is a mechanism where a new class (subclass/child) inherits properties and methods from an existing class (superclass/parent). This promotes code reusability and establishes a hierarchical relationship between classes.</p>
+                
+                <h3>Types of Inheritance:</h3>
+                <ul>
+                    <li><strong>Single Inheritance:</strong> One child class inherits from one parent class</li>
+                    <li><strong>Multiple Inheritance:</strong> One child class inherits from multiple parent classes (supported in C++, not Java)</li>
+                    <li><strong>Multilevel Inheritance:</strong> Chain of inheritance (A → B → C)</li>
+                    <li><strong>Hierarchical Inheritance:</strong> Multiple child classes inherit from one parent</li>
+                </ul>
+
+                <h3>Java Example:</h3>
+                <div class="code-example" data-lang="Java">
+// Parent class (Superclass)
+public class Animal {
+    protected String name;
+    protected int age;
+    
+    public Animal(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    
+    public void eat() {
+        System.out.println(name + " is eating.");
+    }
+    
+    public void sleep() {
+        System.out.println(name + " is sleeping.");
+    }
+    
+    public void makeSound() {
+        System.out.println(name + " makes a sound.");
+    }
+}
+
+// Child class (Subclass)
+public class Dog extends Animal {
+    private String breed;
+    
+    public Dog(String name, int age, String breed) {
+        super(name, age); // Call parent constructor
+        this.breed = breed;
+    }
+    
+    // Override parent method
+    @Override
+    public void makeSound() {
+        System.out.println(name + " barks: Woof! Woof!");
+    }
+    
+    // New method specific to Dog
+    public void wagTail() {
+        System.out.println(name + " is wagging its tail.");
+    }
+    
+    public String getBreed() {
+        return breed;
+    }
+}
+                </div>
+            </div>
+
+            <div id="polymorphism" class="concept-detail">
+                <h2><i class="fas fa-shapes"></i> Polymorphism</h2>
+                <p><strong>Definition:</strong> Polymorphism means "many forms" and allows objects of different classes to be treated as objects of a common base class. The same interface can represent different underlying forms (data types).</p>
+                
+                <h3>Types of Polymorphism:</h3>
+                <ul>
+                    <li><strong>Runtime Polymorphism:</strong> Method overriding (dynamic method dispatch)</li>
+                    <li><strong>Compile-time Polymorphism:</strong> Method overloading and operator overloading</li>
+                </ul>
+
+                <h3>Java Example:</h3>
+                <div class="code-example" data-lang="Java">
+// Base class
+abstract class Shape {
+    protected String color;
+    
+    public Shape(String color) {
+        this.color = color;
+    }
+    
+    // Abstract method (must be implemented by subclasses)
+    public abstract double calculateArea();
+    
+    // Concrete method
+    public void displayInfo() {
+        System.out.println("Shape color: " + color);
+    }
+}
+
+// Derived classes
+class Circle extends Shape {
+    private double radius;
+    
+    public Circle(String color, double radius) {
+        super(color);
+        this.radius = radius;
+    }
+    
+    @Override
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+class Rectangle extends Shape {
+    private double width, height;
+    
+    public Rectangle(String color, double width, double height) {
+        super(color);
+        this.width = width;
+        this.height = height;
+    }
+    
+    @Override
+    public double calculateArea() {
+        return width * height;
+    }
+}
+
+// Polymorphism in action
+public class PolymorphismDemo {
+    public static void main(String[] args) {
+        Shape[] shapes = {
+            new Circle("Red", 5.0),
+            new Rectangle("Blue", 4.0, 6.0),
+            new Circle("Green", 3.0)
+        };
+        
+        // Same method call, different implementations
+        for (Shape shape : shapes) {
+            shape.displayInfo();
+            System.out.println("Area: " + shape.calculateArea());
+            System.out.println();
+        }
+    }
+}
+                </div>
+            </div>
+
+            <div id="abstraction" class="concept-detail">
+                <h2><i class="fas fa-layer-group"></i> Abstraction</h2>
+                <p><strong>Definition:</strong> Abstraction is the process of hiding complex implementation details while showing only essential features of an object. It focuses on what an object does rather than how it does it.</p>
+                
+                <h3>Ways to Achieve Abstraction:</h3>
+                <ul>
+                    <li><strong>Abstract Classes:</strong> Classes that cannot be instantiated and may contain abstract methods</li>
+                    <li><strong>Interfaces:</strong> Contracts that define what methods a class must implement</li>
+                </ul>
+
+                <h3>Java Example:</h3>
+                <div class="code-example" data-lang="Java">
+// Interface for abstraction
+interface Drawable {
+    void draw(); // Abstract method
+    void resize(double factor); // Abstract method
+    
+    // Default method (Java 8+)
+    default void display() {
+        System.out.println("Displaying the drawable object");
+    }
+}
+
+// Abstract class
+abstract class GraphicObject implements Drawable {
+    protected int x, y;
+    protected String color;
+    
+    public GraphicObject(int x, int y, String color) {
+        this.x = x;
+        this.y = y;
+        this.color = color;
+    }
+    
+    // Concrete method
+    public void move(int newX, int newY) {
+        this.x = newX;
+        this.y = newY;
+        System.out.println("Object moved to (" + x + ", " + y + ")");
+    }
+    
+    // Abstract method
+    public abstract void calculateBounds();
+}
+
+// Concrete implementation
+class Circle extends GraphicObject {
+    private double radius;
+    
+    public Circle(int x, int y, String color, double radius) {
+        super(x, y, color);
+        this.radius = radius;
+    }
+    
+    @Override
+    public void draw() {
+        System.out.println("Drawing a " + color + " circle at (" + x + ", " + y + ")");
+    }
+    
+    @Override
+    public void resize(double factor) {
+        radius *= factor;
+        System.out.println("Circle resized by factor: " + factor);
+    }
+    
+    @Override
+    public void calculateBounds() {
+        System.out.println("Circle bounds: (" + (x-radius) + ", " + (y-radius) + 
+                          ") to (" + (x+radius) + ", " + (y+radius) + ")");
+    }
+}
+
+// Usage
+public class AbstractionDemo {
+    public static void main(String[] args) {
+        Drawable circle = new Circle(10, 20, "Red", 5.0);
+        
+        circle.draw();
+        circle.resize(2.0);
+        circle.display();
+    }
+}
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 OOP Course. Created by Muhammad Haseeb</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
